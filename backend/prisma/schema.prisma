@@ -1,0 +1,67 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model AdminUser {
+  id           String   @id @default(cuid())
+  username     String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+}
+
+model HeroSlide {
+  id       String  @id @default(cuid())
+  order    Int
+  title    String
+  subtitle String?
+  image    String
+  active   Boolean @default(true)
+}
+
+model Section {
+  id      String @id @default(cuid())
+  key     String @unique  // nosotros | servicios_intro | clientes_intro | contacto_intro
+  title   String
+  content String
+  image   String?
+}
+
+model Service {
+  id          String  @id @default(cuid())
+  order       Int
+  title       String
+  subtitle    String?
+  description String
+  image       String?
+  icon        String?
+  active      Boolean @default(true)
+}
+
+model Client {
+  id     String  @id @default(cuid())
+  name   String
+  logo   String
+  order  Int
+  active Boolean @default(true)
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  subject   String?
+  message   String
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model SiteConfig {
+  key   String @id
+  value String @default("")
+}
