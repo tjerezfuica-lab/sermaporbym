@@ -11,8 +11,8 @@ const app  = express();
 const PORT = process.env.PORT || 3004;
 
 const allowed = [
-  process.env.FRONTEND_URL || 'http://localhost:3003',
-  process.env.ADMIN_URL    || 'http://localhost:5177',
+  ...(process.env.FRONTEND_URL || 'http://localhost:3003').split(','),
+  ...(process.env.ADMIN_URL    || 'http://localhost:5177').split(','),
 ];
 
 app.use(helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' } }));
