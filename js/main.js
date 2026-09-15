@@ -56,9 +56,8 @@ function toggleMenu() {
 
 // ── Hero carousel ────────────────────────────────────────
 var slides = [
-  { title: 'Servicios Marítimos y Portuarios', sub: 'Vamos por más' },
-  { title: 'Estiba y Desestiba de Excelencia', sub: 'Operaciones portuarias especializadas' },
-  { title: 'Logística y Almacenaje',           sub: 'Centro logístico en Puerto Montt' },
+  { title: 'Servicios Marítimos y Portuarios',         sub: 'Vamos por más' },
+  { title: 'Puerto Montt — Operaciones de Excelencia', sub: 'Estiba, desestiba y logística portuaria' },
 ];
 
 var currentSlide = 0;
