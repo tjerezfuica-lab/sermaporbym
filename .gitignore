@@ -9,6 +9,3 @@ uploads/
 .DS_Store
 .vscode/
 .idea/
-web/
-admin/
-backend/
