@@ -3,385 +3,354 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SERMAPOR — Servicios Marítimos y Portuarios</title>
-  <meta name="description" content="Empresa especializada en estiba, desestiba, almacenamiento y servicios logísticos portuarios. Grupo B&M Agencia Marítima S.A. Desde 1997." />
-  <meta name="keywords" content="servicios marítimos, portuarios, estiba, desestiba, logística, almacenaje, Puerto Montt, Chile, SERMAPOR" />
-  <meta property="og:title" content="SERMAPOR — Servicios Marítimos y Portuarios" />
-  <meta property="og:description" content="Soluciones integrales para la operación portuaria desde 1997." />
-  <meta property="og:type" content="website" />
+  <title>SMP — Servicios Marítimos y Portuarios</title>
+  <!-- Preload recursos críticos -->
+  <link rel="preload" href="css/styles.css" as="style" />
+  <link rel="preload" href="Images/HEAD/1.jpg" as="image" fetchpriority="high" />
+  <link rel="preload" href="Images/HEAD/2.jpg" as="image" />
+  <link rel="preload" href="Images/HEAD/3.jpg" as="image" />
+  <link rel="preload" href="Images/SMP_logo.png" as="image" fetchpriority="high" />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="dns-prefetch" href="https://flagcdn.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="css/styles.css" />
+  <!-- reCAPTCHA v2 — reemplaza data-sitekey con tu clave real de https://www.google.com/recaptcha/admin -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
 
-  <!-- ========== NAVBAR ========== -->
-  <header id="navbar">
-    <div class="navbar-bar"></div>
-    <div class="navbar-inner">
-      <a href="#inicio" class="navbar-logo" onclick="smoothNav(event,'inicio')">
-        <div class="logo-box"><span>SMP</span></div>
-        <div class="logo-text">
-          <div class="logo-name">SERMAPOR</div>
-          <div class="logo-sub">Serv. Marítimos y Portuarios</div>
-        </div>
+  <!-- Fondo global fijo: visible a través del hero y nosotros -->
+  <div id="fondo-global">
+    <div class="hero-slide activo"></div>
+    <div class="hero-slide"></div>
+    <div class="hero-slide"></div>
+  </div>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <div class="contenedor header-inner">
+      <a href="#inicio" class="logo-link">
+        <img src="Images/SMP_logo.png" alt="SMP Servicios Marítimos y Portuarios" class="logo-img" />
       </a>
-
-      <nav class="navbar-links" id="navLinks">
-        <a href="#inicio"    onclick="smoothNav(event,'inicio')">Inicio</a>
-        <a href="#nosotros"  onclick="smoothNav(event,'nosotros')">Nosotros</a>
-        <a href="#servicios" onclick="smoothNav(event,'servicios')">Nuestros Servicios</a>
-        <a href="#clientes"  onclick="smoothNav(event,'clientes')">Nuestros Clientes</a>
-        <a href="#contacto"  onclick="smoothNav(event,'contacto')">Contacto</a>
+      <nav class="nav-principal">
+        <ul class="nav-lista">
+          <li><a href="#inicio"    class="nav-link" data-i18n="nav-inicio">Inicio</a></li>
+          <li><a href="#nosotros"  class="nav-link" data-i18n="nav-nosotros">Nosotros</a></li>
+          <li><a href="#servicios" class="nav-link" data-i18n="nav-servicios">Servicios</a></li>
+          <li><a href="#contacto"  class="nav-link" data-i18n="nav-contacto">Contacto</a></li>
+        </ul>
       </nav>
-
-      <button class="hamburger" id="hamburger" aria-label="Menú" onclick="toggleMenu()">
+      <div class="lang-switcher" id="lang-switcher">
+        <button class="lang-btn" id="lang-btn" title="Idioma / Language">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lang-globe-icon" aria-hidden="true">
+            <defs>
+              <clipPath id="gc">
+                <circle cx="12" cy="12" r="9.5"/>
+              </clipPath>
+            </defs>
+            <circle cx="12" cy="12" r="10"/>
+            <g clip-path="url(#gc)">
+              <line x1="2"  y1="7.5" x2="22" y2="7.5"/>
+              <line x1="2"  y1="12"  x2="22" y2="12"/>
+              <line x1="2"  y1="16.5" x2="22" y2="16.5"/>
+              <line x1="12" y1="2"   x2="12" y2="22"/>
+              <ellipse cx="12" cy="12" rx="5" ry="10"/>
+            </g>
+          </svg>
+        </button>
+        <div class="lang-dropdown" id="lang-dropdown">
+          <button class="lang-option activo" data-lang="es">
+            <img src="https://flagcdn.com/w20/es.png" alt="España" class="lang-flag"> Español
+          </button>
+          <button class="lang-option" data-lang="en">
+            <img src="https://flagcdn.com/w20/gb.png" alt="United Kingdom" class="lang-flag"> English
+          </button>
+          <button class="lang-option" data-lang="de">
+            <img src="https://flagcdn.com/w20/de.png" alt="Deutschland" class="lang-flag"> Deutsch
+          </button>
+        </div>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menú">
         <span></span><span></span><span></span>
       </button>
     </div>
-
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="#inicio"    onclick="smoothNav(event,'inicio')">Inicio</a>
-      <a href="#nosotros"  onclick="smoothNav(event,'nosotros')">Nosotros</a>
-      <a href="#servicios" onclick="smoothNav(event,'servicios')">Nuestros Servicios</a>
-      <a href="#clientes"  onclick="smoothNav(event,'clientes')">Nuestros Clientes</a>
-      <a href="#contacto"  onclick="smoothNav(event,'contacto')">Contacto</a>
-    </div>
   </header>
 
-  <!-- ========== HERO ========== -->
+  <!-- ===== HERO ===== -->
   <section id="inicio" class="hero">
-    <div class="hero-slides" id="heroSlides">
-      <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1504855012953-28b9baada3f6?w=1600&q=80')"></div>
-      <div class="hero-slide"        style="background-image:url('img/puerto.jpg')"></div>
-    </div>
     <div class="hero-overlay"></div>
-    <div class="hero-accent-bar"></div>
-
-    <div class="hero-content">
-      <div class="hero-label">
-        <div class="hero-label-line"></div>
-        <span>Grupo B&amp;M Agencia Marítima</span>
-      </div>
-      <h1 class="hero-title" id="heroTitle">Servicios Marítimos y Portuarios</h1>
-      <p  class="hero-subtitle" id="heroSub">Vamos por más</p>
-      <div class="hero-btns">
-        <a href="#servicios" class="btn-primary" onclick="smoothNav(event,'servicios')">Nuestros Servicios</a>
-        <a href="#contacto"  class="btn-outline" onclick="smoothNav(event,'contacto')">Contáctenos</a>
+    <div class="contenedor hero-contenido">
+      <div class="hero-glass">
+        <p class="hero-eyebrow">Grupo B&M Agencia Marítima</p>
+        <h1 class="hero-titulo" data-i18n-html="hero-titulo">Servicios Marítimos<br /><span class="hero-acento">y Portuarios</span></h1>
+        <p class="hero-slogan" data-i18n="hero-slogan">"Vamos por más"</p>
+        <p class="hero-desc" data-i18n="hero-desc">Más de 25 años de experiencia en estiba, servicios portuarios y logística de cargas en Chile.</p>
+        <div class="hero-botones">
+          <a href="#servicios" class="btn btn-primario" data-i18n="hero-btn-servicios">Nuestros Servicios</a>
+          <a href="#contacto"  class="btn btn-secundario" data-i18n="hero-btn-contacto">Contáctenos</a>
+        </div>
       </div>
     </div>
-
-    <div class="hero-dots" id="heroDots">
-      <button class="dot active" onclick="goSlide(0)"></button>
-      <button class="dot"        onclick="goSlide(1)"></button>
+    <div class="hero-dots">
+      <button class="hero-dot activo" data-idx="0" aria-label="Imagen 1"></button>
+      <button class="hero-dot"        data-idx="1" aria-label="Imagen 2"></button>
+      <button class="hero-dot"        data-idx="2" aria-label="Imagen 3"></button>
     </div>
-
-    <div class="hero-scroll-hint">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
+    <div class="hero-ola">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 90" preserveAspectRatio="none">
+        <path fill="#244B93" d="M0,40 C360,90 1080,0 1440,50 L1440,90 L0,90 Z"/>
+      </svg>
     </div>
   </section>
 
-  <!-- ========== STATS ========== -->
-  <section id="stats" class="stats">
-    <div class="stats-bar"></div>
-    <div class="stats-grid">
-      <div class="stat-card" data-target="27" data-suffix="">
-        <div class="stat-icon">📅</div>
-        <div class="stat-number"><span class="count">0</span></div>
-        <div class="stat-label">Años de experiencia</div>
-      </div>
-      <div class="stat-card" data-target="10" data-suffix="+">
-        <div class="stat-icon">⚓</div>
-        <div class="stat-number"><span class="count">0</span><span class="suffix">+</span></div>
-        <div class="stat-label">Puertos operados</div>
-      </div>
-      <div class="stat-card" data-target="28861" data-suffix="m²">
-        <div class="stat-icon">🏭</div>
-        <div class="stat-number"><span class="count">0</span><span class="suffix">m²</span></div>
-        <div class="stat-label">Centro logístico</div>
-      </div>
-      <div class="stat-card" data-target="50" data-suffix="+">
-        <div class="stat-icon">🤝</div>
-        <div class="stat-number"><span class="count">0</span><span class="suffix">+</span></div>
-        <div class="stat-label">Clientes activos</div>
+  <!-- ===== ESTADÍSTICAS ===== -->
+  <section id="estadisticas" class="estadisticas">
+    <div class="contenedor">
+      <div class="estadisticas-grid">
+        <div class="stat-item animar">
+          <span class="stat-numero" data-target="25">0</span>
+          <span class="stat-sufijo">+</span>
+          <p class="stat-label" data-i18n="stat-years">Años de Experiencia</p>
+        </div>
+        <div class="stat-item animar">
+          <span class="stat-numero" data-target="5">0</span>
+          <span class="stat-sufijo">+</span>
+          <p class="stat-label" data-i18n="stat-ports">Puertos en Operación</p>
+        </div>
+        <div class="stat-item animar">
+          <span class="stat-numero" data-target="3">0</span>
+          <span class="stat-sufijo"></span>
+          <p class="stat-label" data-i18n="stat-iso">Certificaciones ISO</p>
+        </div>
+        <div class="stat-item animar">
+          <span class="stat-numero" data-target="10">0</span>
+          <span class="stat-sufijo">+</span>
+          <p class="stat-label" data-i18n="stat-clients">Clientes Destacados</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== NOSOTROS ========== -->
+  <!-- ===== NOSOTROS ===== -->
   <section id="nosotros" class="nosotros">
-    <div class="container">
-      <div class="nosotros-grid">
-
-        <div class="nosotros-img-wrap">
-          <div class="img-deco-tl"></div>
-          <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80"
-               alt="Operaciones portuarias SERMAPOR" class="nosotros-img" />
-          <div class="img-badge">
-            <div class="badge-year">1997</div>
-            <div class="badge-label">FUNDACIÓN</div>
-          </div>
-        </div>
-
-        <div class="nosotros-text">
-          <div class="section-kicker">
-            <div class="kicker-line"></div>
-            <span>Nuestra Historia</span>
-          </div>
-          <h2>Nuestra Historia</h2>
-          <p>
-            Servicios Marítimos y Portuarios (SMP), empresa del Grupo B&amp;M Agencia Marítima S.A.,
-            se crea el año 1997 en la ciudad de Concepción, bajo el nombre "Estibas y Pacífico Sur S.A.".
-            Su objeto principal fue la estiba y desestiba de naves, como también el transporte y manipuleo
-            de cargas en los puertos del sur de Chile. Con el paso de los años, fue ampliando su presencia
-            al resto del país, tomando el año 2007 su nombre actual (SMP) y expandiendo sus actividades
-            portuarias al bodegaje y servicios logísticos.
-          </p>
-
-          <div class="valores">
-            <div class="valor">
-              <div class="valor-icon">⚓</div>
-              <span>Experiencia de más de 27 años en el sector</span>
-            </div>
-            <div class="valor">
-              <div class="valor-icon">🛡️</div>
-              <span>Personal calificado y equipamiento especializado</span>
-            </div>
-            <div class="valor">
-              <div class="valor-icon">🏭</div>
-              <span>Centro logístico de 28.861 m² en Puerto Montt</span>
-            </div>
-          </div>
-
-          <div class="slogan">"Vamos por más"</div>
-        </div>
+    <div class="nosotros-fondo"></div>
+    <div class="contenedor nosotros-contenido">
+      <div class="seccion-titulo seccion-titulo--claro animar">
+        <h2 data-i18n="nosotros-titulo">Nuestra Historia</h2>
+      </div>
+      <div class="nosotros-glass animar">
+        <p class="nosotros-parrafo" data-i18n="nosotros-p1">Servicios Marítimos y Portuarios (SMP), empresa del Grupo B&M Agencia Marítima S.A., se crea el año 1997 en la ciudad de Concepción, bajo el nombre "Estibas y Pacífico Sur S.A.". Su objeto principal fue la estiba y desestiba de naves, como también el transporte y manipuleo de cargas en los puertos del sur de Chile.</p>
+        <p class="nosotros-parrafo" data-i18n="nosotros-p2">Con el paso de los años, fue ampliando su presencia al resto del país, tomando el año 2007 su nombre actual (SMP) y expandiendo sus actividades portuarias al bodegaje y servicios logísticos, de modo de aportar cada vez más valor a la industria marítima–portuaria.</p>
+      </div>
+      <div class="nosotros-cert animar">
+        <img src="Images/ISO.png" alt="Certificaciones ISO SMP" class="nosotros-certificaciones" loading="lazy" />
       </div>
     </div>
   </section>
 
-  <!-- ========== SERVICIOS ========== -->
+  <!-- ===== SERVICIOS ===== -->
   <section id="servicios" class="servicios">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-kicker center">
-          <div class="kicker-line"></div>
-          <span>Lo que hacemos</span>
-          <div class="kicker-line"></div>
-        </div>
-        <h2>Nuestros Servicios</h2>
-        <p class="section-desc">Ofrecemos soluciones integrales para la operación portuaria y logística, con personal calificado y equipamiento especializado.</p>
+    <div class="contenedor">
+      <div class="seccion-titulo animar">
+        <h2 data-i18n="servicios-titulo">Nuestros Servicios</h2>
+        <p data-i18n="servicios-desc">Soluciones integrales para la industria marítima–portuaria en Chile.</p>
       </div>
-
       <div class="servicios-grid">
-
-        <div class="svc-card">
-          <div class="svc-img-wrap">
-            <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=600&q=80" alt="Muellaje y Estiba" />
-            <div class="svc-img-overlay"></div>
-            <div class="svc-icon">⚓</div>
-          </div>
-          <div class="svc-body">
-            <div class="svc-sub">Servicios Portuarios Especializados</div>
-            <h3>Muellaje y Estiba</h3>
-            <p>Nos especializamos en actividades esenciales para la operación portuaria, garantizando el flujo eficiente de las cargas y su manejo seguro. Operaciones eficientes para carga general y especializada con equipos y personal calificado. Servicios de amarradores, guardias de portalón y arriendo de espías.</p>
-            <div class="svc-cta" onclick="smoothNav(null,'contacto')">Consultar servicio <span>→</span></div>
+        <div class="servicio-card animar" data-servicio="estiba">
+          <img src="Images/Mollaje y estiba.jpg" alt="Servicios de Estiba y Desestiba" class="servicio-img" loading="lazy" />
+          <div class="servicio-info">
+            <h3 class="servicio-titulo" data-i18n="estiba-titulo">Servicios de Estiba y Desestiba</h3>
+            <p class="servicio-desc" data-i18n="estiba-desc">Operaciones de carga y descarga de naves con personal calificado y certificado.</p>
+            <button class="servicio-btn" data-i18n="ver-mas">Ver más</button>
           </div>
         </div>
-
-        <div class="svc-card">
-          <div class="svc-img-wrap">
-            <img src="https://images.unsplash.com/photo-1542744173-05336fcc7ad4?w=600&q=80" alt="Almacenamiento" />
-            <div class="svc-img-overlay"></div>
-            <div class="svc-icon">🏭</div>
-          </div>
-          <div class="svc-body">
-            <div class="svc-sub">Logística y Almacenaje</div>
-            <h3>Almacenamiento y Manejo de Cargas</h3>
-            <p>Infraestructura especializada con bodegas de más de 28.000 m² en Puerto Montt. Manejo de fertilizantes con mezclas personalizadas y despacho a través de Copeval. Granos de alimento con limpieza, tamizado y despacho en maxi sacos o a granel para industrias salmoneras y ganaderas.</p>
-            <div class="svc-cta" onclick="smoothNav(null,'contacto')">Consultar servicio <span>→</span></div>
+        <div class="servicio-card animar" data-servicio="portuarios">
+          <img src="Images/Servicios Portuarios.jpg" alt="Servicios Portuarios" class="servicio-img" loading="lazy" />
+          <div class="servicio-info">
+            <h3 class="servicio-titulo" data-i18n="portuarios-titulo">Servicios Portuarios</h3>
+            <p class="servicio-desc" data-i18n="portuarios-desc">Coordinación integral de operaciones en los principales puertos del país.</p>
+            <button class="servicio-btn" data-i18n="ver-mas">Ver más</button>
           </div>
         </div>
-
-        <div class="svc-card">
-          <div class="svc-img-wrap">
-            <img src="https://images.unsplash.com/photo-1504855012953-28b9baada3f6?w=600&q=80" alt="Servicios Portuarios" />
-            <div class="svc-img-overlay"></div>
-            <div class="svc-icon">🚢</div>
-          </div>
-          <div class="svc-body">
-            <div class="svc-sub">Apoyo Logístico Completo</div>
-            <h3>Servicios Portuarios Integrales</h3>
-            <p>Servicios de apoyo logístico en puerto con amarradores y guardias de portalón especializados. Transporte y manipuleo de cargas en puertos del sur de Chile. Soluciones adaptadas a los desafíos del sector marítimo-portuario con cobertura nacional.</p>
-            <div class="svc-cta" onclick="smoothNav(null,'contacto')">Consultar servicio <span>→</span></div>
+        <div class="servicio-card animar" data-servicio="logistica">
+          <img src="Images/Logistica y Almacenaje.jpg" alt="Logística y Almacenaje" class="servicio-img" loading="lazy" />
+          <div class="servicio-info">
+            <h3 class="servicio-titulo" data-i18n="logistica-titulo">Logística y Almacenaje</h3>
+            <p class="servicio-desc" data-i18n="logistica-desc">Soluciones de bodegaje, distribución y trazabilidad de carga a medida.</p>
+            <div class="servicio-btns">
+              <button class="servicio-btn" data-i18n="ver-mas">Ver más</button>
+              <button class="servicio-btn modal-extra-btn" data-modal="bodegas">Bodegas</button>
+              <button class="servicio-btn modal-extra-btn" data-modal="equipos">Equipos</button>
+            </div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ========== CLIENTES ========== -->
-  <section id="clientes" class="clientes">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-kicker center">
-          <div class="kicker-line"></div>
-          <span>Confían en nosotros</span>
-          <div class="kicker-line"></div>
-        </div>
-        <h2>Nuestros Clientes</h2>
-        <p class="section-desc">Trabajamos con las principales empresas de la industria marítima, fertilizantes, alimentos y energía del país.</p>
-      </div>
-
-      <div class="clientes-grid">
-        <div class="cliente-badge">Copeval</div>
-        <div class="cliente-badge">Agencias Marítimas</div>
-        <div class="cliente-badge">Termoeléctricas</div>
-        <div class="cliente-badge">Industria Salmonera</div>
-        <div class="cliente-badge">Industria Ganadera</div>
-        <div class="cliente-badge">Fertilizantes Chile</div>
-        <div class="cliente-badge">Puerto Montt</div>
-        <div class="cliente-badge">TMP Patagonia</div>
-      </div>
-
-      <div class="sectores">
-        <div class="sector"><span>🌱</span> Industria Fertilizantes</div>
-        <div class="sector"><span>🐟</span> Industria Alimentaria</div>
-        <div class="sector"><span>⚡</span> Termoeléctricas</div>
-        <div class="sector"><span>⚓</span> Agencias Marítimas</div>
+  <!-- ===== CLIENTES ===== -->
+  <section class="clientes">
+    <div class="contenedor">
+      <p class="clientes-eyebrow">Nuestros Clientes</p>
+    </div>
+    <div class="clientes-carousel">
+      <div class="clientes-track">
+        <img src="Images/CLIENTS/GNL.png"      alt="GNL"      class="cliente-logo cliente-logo--grande" loading="lazy">
+        <img src="Images/CLIENTS/PLL.png"      alt="PLL"      class="cliente-logo" loading="lazy">
+        <img src="Images/CLIENTS/SQM.png"      alt="SQM"      class="cliente-logo" loading="lazy">
+        <img src="Images/CLIENTS/adm.png"      alt="ADM"      class="cliente-logo cliente-logo--grande" loading="lazy">
+        <img src="Images/CLIENTS/agunsa.png"   alt="Agunsa"   class="cliente-logo cliente-logo--grande" loading="lazy">
+        <img src="Images/CLIENTS/asimar.jpg"   alt="Asimar"   class="cliente-logo" loading="lazy">
+        <img src="Images/CLIENTS/bsa.png"      alt="BSA"      class="cliente-logo" loading="lazy">
+        <img src="Images/CLIENTS/copeval.png"  alt="Copeval"  class="cliente-logo cliente-logo--grande" loading="lazy">
+        <img src="Images/CLIENTS/guacolda.png" alt="Guacolda" class="cliente-logo" loading="lazy">
+        <img src="Images/CLIENTS/maersk.png"   alt="Maersk"   class="cliente-logo cliente-logo--grande" loading="lazy">
+        <img src="Images/CLIENTS/oxiquim.png"  alt="Oxiquim"  class="cliente-logo cliente-logo--grande" loading="lazy">
+        <img src="Images/CLIENTS/oxxean.png"   alt="Oxxean"   class="cliente-logo" loading="lazy">
+        <!-- Duplicado para loop infinito -->
+        <img src="Images/CLIENTS/GNL.png"      alt="GNL"      class="cliente-logo cliente-logo--grande" loading="lazy">
+        <img src="Images/CLIENTS/PLL.png"      alt="PLL"      class="cliente-logo" loading="lazy">
+        <img src="Images/CLIENTS/SQM.png"      alt="SQM"      class="cliente-logo" loading="lazy">
+        <img src="Images/CLIENTS/adm.png"      alt="ADM"      class="cliente-logo cliente-logo--grande" loading="lazy">
+        <img src="Images/CLIENTS/agunsa.png"   alt="Agunsa"   class="cliente-logo cliente-logo--grande" loading="lazy">
+        <img src="Images/CLIENTS/asimar.jpg"   alt="Asimar"   class="cliente-logo" loading="lazy">
+        <img src="Images/CLIENTS/bsa.png"      alt="BSA"      class="cliente-logo" loading="lazy">
+        <img src="Images/CLIENTS/copeval.png"  alt="Copeval"  class="cliente-logo cliente-logo--grande" loading="lazy">
+        <img src="Images/CLIENTS/guacolda.png" alt="Guacolda" class="cliente-logo" loading="lazy">
+        <img src="Images/CLIENTS/maersk.png"   alt="Maersk"   class="cliente-logo cliente-logo--grande" loading="lazy">
+        <img src="Images/CLIENTS/oxiquim.png"  alt="Oxiquim"  class="cliente-logo cliente-logo--grande" loading="lazy">
+        <img src="Images/CLIENTS/oxxean.png"   alt="Oxxean"   class="cliente-logo" loading="lazy">
       </div>
     </div>
   </section>
 
-  <!-- ========== CONTACTO ========== -->
+  <!-- ===== MODAL SERVICIOS ===== -->
+  <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true">
+    <div class="modal-glass" id="modal-glass">
+      <button class="modal-cerrar" id="modal-cerrar" aria-label="Cerrar">&times;</button>
+      <div class="modal-icono" id="modal-icono"></div>
+      <h3 class="modal-titulo" id="modal-titulo"></h3>
+      <div class="modal-cuerpo" id="modal-cuerpo"></div>
+    </div>
+  </div>
+
+  <!-- ===== CONTACTO ===== -->
   <section id="contacto" class="contacto">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-kicker center">
-          <div class="kicker-line"></div>
-          <span>Escríbenos</span>
-          <div class="kicker-line"></div>
+    <div class="contenedor">
+      <div class="seccion-titulo animar">
+        <h2 data-i18n="contacto-titulo">Contáctenos</h2>
+        <p data-i18n="contacto-desc">Estamos disponibles para responder sus consultas y coordinar operaciones.</p>
+      </div>
+      <div class="contacto-grid">
+        <!-- Mapa -->
+        <div class="contacto-mapa animar">
+          <div class="mapa-tabs">
+            <button class="mapa-tab" data-src="https://maps.google.com/maps?q=Rosario+Norte+100,+Las+Condes,+Santiago,+Chile&z=15&output=embed">Santiago</button>
+            <button class="mapa-tab activo" data-src="https://maps.google.com/maps?q=-41.5239651,-73.0778479&z=15&output=embed">Puerto Montt</button>
+          </div>
+          <iframe
+            id="mapa-iframe"
+            src="https://maps.google.com/maps?q=-41.5239651,-73.0778479&z=15&output=embed"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Ubicación SMP">
+          </iframe>
         </div>
-        <h2>Contáctenos</h2>
-        <p class="section-desc">Estamos disponibles para atender sus requerimientos. Contáctenos y le responderemos a la brevedad.</p>
+        <!-- Formulario -->
+        <form class="contacto-form animar" id="form-contacto" novalidate>
+          <div class="form-row">
+            <div class="form-grupo">
+              <label for="nombre" data-i18n="label-nombre">Nombre</label>
+              <input type="text" id="nombre" name="nombre" data-i18n-ph="ph-nombre" placeholder="Su nombre completo" required />
+            </div>
+            <div class="form-grupo">
+              <label for="empresa" data-i18n="label-empresa">Empresa</label>
+              <input type="text" id="empresa" name="empresa" data-i18n-ph="ph-empresa" placeholder="Nombre de su empresa" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-grupo">
+              <label for="email" data-i18n="label-email">Correo electrónico</label>
+              <input type="email" id="email" name="email" data-i18n-ph="ph-email" placeholder="correo@ejemplo.cl" required />
+            </div>
+            <div class="form-grupo">
+              <label for="telefono" data-i18n="label-telefono">Teléfono</label>
+              <input type="tel" id="telefono" name="telefono" data-i18n-ph="ph-telefono" placeholder="+56 9 XXXX XXXX" />
+            </div>
+          </div>
+          <div class="form-grupo">
+            <label for="servicio" data-i18n="label-servicio">Servicio de interés</label>
+            <select id="servicio" name="servicio">
+              <option value="" disabled selected data-i18n="opt-default">Seleccione un servicio</option>
+              <option data-i18n="opt-estiba">Estiba y Desestiba</option>
+              <option data-i18n="opt-portuarios">Servicios Portuarios</option>
+              <option data-i18n="opt-logistica">Logística y Almacenaje</option>
+              <option data-i18n="opt-otro">Otro</option>
+            </select>
+          </div>
+          <div class="form-grupo">
+            <label for="mensaje" data-i18n="label-mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="5" data-i18n-ph="ph-mensaje" placeholder="Describa su consulta o requerimiento..." required></textarea>
+          </div>
+          <!-- reCAPTCHA — reemplaza data-sitekey con tu clave real -->
+          <div class="recaptcha-wrap">
+            <div class="g-recaptcha"
+                 data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+                 data-theme="light"
+                 data-size="normal">
+            </div>
+            <p class="recaptcha-error" id="recaptcha-error" data-i18n="recaptcha-error">Por favor confirma que no eres un robot.</p>
+          </div>
+          <button type="submit" class="btn btn-acento btn-submit" data-i18n="btn-submit">Enviar mensaje</button>
+          <div class="form-exito" id="form-exito" data-i18n="form-exito">
+            ✔ Mensaje enviado. Nos pondremos en contacto a la brevedad.
+          </div>
+        </form>
       </div>
 
-      <div class="contacto-grid">
-
-        <div class="contacto-info">
-          <h3>Información de contacto</h3>
-
-          <div class="info-item">
-            <div class="info-icon">📞</div>
-            <div>
-              <div class="info-label">Teléfonos</div>
-              <div>+56 9 92270853</div>
-              <div>+56 9 85582924</div>
-            </div>
-          </div>
-
-          <div class="info-item">
-            <div class="info-icon">✉️</div>
-            <div>
-              <div class="info-label">Email</div>
-              <div>contacto@sermapor.cl</div>
-            </div>
-          </div>
-
-          <div class="info-item">
-            <div class="info-icon">📍</div>
-            <div>
-              <div class="info-label">Ubicación</div>
-              <div>Puerto Montt, Chile</div>
-              <div>3 km de TMP · 600 m Ruta 5</div>
-            </div>
-          </div>
-
-          <div class="info-item">
-            <div class="info-icon">🌐</div>
-            <div>
-              <div class="info-label">Sitio web</div>
-              <div>www.sermapor.cl</div>
-            </div>
-          </div>
-
-          <div class="info-footer">
-            Grupo B&amp;M Agencia Marítima S.A.<br />
-            Empresa del sur de Chile desde 1997
-          </div>
+      <!-- Datos de contacto en línea -->
+      <div class="contacto-datos animar">
+        <div class="info-item">
+          <strong data-i18n="datos-direccion">Dirección</strong>
+          <p>Rosario Norte 100, Of. 301, Las Condes, Santiago</p>
         </div>
-
-        <div class="contacto-form-wrap">
-          <div id="formSuccess" class="form-success" style="display:none">
-            <div class="form-success-icon">✅</div>
-            <h3>¡Mensaje enviado!</h3>
-            <p>Le responderemos a la brevedad.</p>
-            <button onclick="resetForm()">Enviar otro mensaje</button>
-          </div>
-
-          <form id="contactForm" onsubmit="submitForm(event)">
-            <div class="form-row">
-              <input type="text"  name="name"    placeholder="Nombre completo *" required />
-              <input type="email" name="email"   placeholder="Correo electrónico *" required />
-            </div>
-            <div class="form-row">
-              <input type="tel"   name="phone"   placeholder="Teléfono" />
-              <input type="text"  name="subject" placeholder="Asunto" />
-            </div>
-            <textarea name="message" placeholder="Mensaje *" rows="5" required></textarea>
-            <div id="formError" class="form-error" style="display:none">Error al enviar. Por favor intente nuevamente.</div>
-            <button type="submit" id="submitBtn">Enviar mensaje</button>
-          </form>
+        <div class="info-item">
+          <strong data-i18n="datos-telefono">Teléfono</strong>
+          <p>+56 22 347 2100</p>
         </div>
-
+        <div class="info-item">
+          <strong data-i18n="datos-correo">Correo</strong>
+          <p>comercial-smp@sermapor.cl</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== FOOTER ========== -->
+  <!-- ===== FOOTER ===== -->
   <footer class="footer">
-    <div class="footer-bar"></div>
-    <div class="container">
-      <div class="footer-grid">
-
-        <div class="footer-brand">
-          <div class="footer-logo">
-            <div class="logo-box small"><span>SMP</span></div>
-            <span class="footer-logo-name">SERMAPOR</span>
-          </div>
-          <p>Servicios Marítimos y Portuarios — empresa del Grupo B&amp;M Agencia Marítima S.A., operando en Chile desde 1997.</p>
-          <p class="footer-slogan">"Vamos por más"</p>
-        </div>
-
-        <div class="footer-nav">
-          <h4>Navegación</h4>
-          <a href="#inicio"    onclick="smoothNav(event,'inicio')">Inicio</a>
-          <a href="#nosotros"  onclick="smoothNav(event,'nosotros')">Nosotros</a>
-          <a href="#servicios" onclick="smoothNav(event,'servicios')">Nuestros Servicios</a>
-          <a href="#clientes"  onclick="smoothNav(event,'clientes')">Nuestros Clientes</a>
-          <a href="#contacto"  onclick="smoothNav(event,'contacto')">Contacto</a>
-        </div>
-
-        <div class="footer-contact">
-          <h4>Contacto</h4>
-          <div class="footer-contact-item"><span>📞</span> +56 9 92270853</div>
-          <div class="footer-contact-item"><span>📞</span> +56 9 85582924</div>
-          <div class="footer-contact-item"><span>✉️</span> contacto@sermapor.cl</div>
-          <div class="footer-contact-item"><span>📍</span> Puerto Montt, Chile</div>
-          <div class="footer-contact-item"><span>🌐</span> www.sermapor.cl</div>
-        </div>
-
+    <div class="contenedor footer-inner">
+      <div class="footer-logo">
+        <img src="Images/logo-footer-blanco.png" alt="SMP Servicios Marítimos y Portuarios" class="footer-logo-img" />
       </div>
-
-      <div class="footer-bottom">
-        <span>© <span id="year"></span> SERMAPOR — Servicios Marítimos y Portuarios. Todos los derechos reservados.</span>
-        <span>Grupo B&amp;M Agencia Marítima S.A.</span>
+      <div class="footer-contacto">
+        <p>Rosario Norte 100, Of. 301, Las Condes, Santiago</p>
+        <p>+56 22 347 2100 · comercial-smp@sermapor.cl</p>
+        <p>www.sermapor.cl</p>
       </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Servicios Marítimos y Portuarios S.A. · Grupo B&M Agencia Marítima</p>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>
